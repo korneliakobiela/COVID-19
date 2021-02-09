@@ -1,0 +1,47 @@
+[
+    {
+        "data": {
+            "confirmedCases": "126",
+            "deathCases": "2926",
+            "hospitalizedCases": "826",
+            "recoveredCases": "12222",
+            "when": {
+                "date": {
+                    "day": "2",
+                    "month": "2",
+                    "year": "2021"
+                },
+                "time": {
+                    "hour": "0",
+                    "minute": "0",
+                    "second": "0",
+                    "timezone": "Europe/Paris"
+                },
+                "utcInstant": "1612220400000"
+            }
+        },
+        "delta": {
+            "confirmedCases": "0",
+            "deathCases": "10",
+            "hospitalizedCases": "0",
+            "recoveredCases": "47",
+            "when": {
+                "date": {
+                    "day": "2",
+                    "month": "2",
+                    "year": "2021"
+                },
+                "time": {
+                    "hour": "0",
+                    "minute": "0",
+                    "second": "0",
+                    "timezone": "Europe/Paris"
+                },
+                "utcInstant": "1612220400000"
+            }
+        },
+        "inputType": "level2",
+        "name": "Paris",
+        "result": "success"
+    }
+]
