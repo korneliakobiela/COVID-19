@@ -8,4 +8,13 @@ jobs:
     name: Update data from remote
     runs-on: ubuntu-latest
     steps:
-      -
+      - name: Update from remote
+        uses: actions/checkout@v2
+        with:
+          repository: CSSEGISandData/COVID-19
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrests.GH_PAT }}
+          commit-message: Update DATA      
+
+      
