@@ -1,11 +1,22 @@
 name: Data-Update
 
-on: schedule
-  - cron: 15 16 * * *
+on: 
+  schedule:
+  - cron: "42 16 * * *"
 
 jobs:
   update-data:
     name: Update data from remote
     runs-on: ubuntu-latest
     steps:
-      -
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: CSSEGISandData/COVID-19
+      - name: PR
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrests.GH_PAT }}
+          commit-message: Update DATA      
+
+      
