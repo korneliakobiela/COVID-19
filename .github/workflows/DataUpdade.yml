@@ -1,0 +1,11 @@
+name: Data-Update
+
+on: schedule
+  - cron: 15 16 * * *
+
+jobs:
+  update-data:
+    name: Update data from remote
+    runs-on: ubuntu-latest
+    steps:
+      -
