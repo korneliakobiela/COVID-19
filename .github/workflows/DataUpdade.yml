@@ -2,7 +2,7 @@ name: Data-Update
 
 on: 
   schedule:
-  - cron: "40 11 * * *"
+  - cron: "03 12 * * *"
 
 jobs:
   update-data:
@@ -16,9 +16,9 @@ jobs:
           repository: CSSEGISandData/COVID-19
       - name: PR
         uses: peter-evans/create-pull-request@v3
-        push-to-fork: korneliakobiela/COVID-19/
         with:
           token: ${{ secrets.GH_PAT }}
+          push-to-fork: korneliakobiela/COVID-19/
           commit-message: Update remote Data
 
       
