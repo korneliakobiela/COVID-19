@@ -2,7 +2,7 @@ name: Data-Update
 
 on: 
   schedule:
-  - cron: "40 15 * * *"
+  - cron: "40 9 * * *"
 
 jobs:
   update-data:
@@ -17,7 +17,7 @@ jobs:
       - name: PR
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ GH_PAT }}
+          token: ${{ secrets.GH_PAT }}
           commit-message: Update remote Data
 
       
