@@ -2,7 +2,7 @@ name: Data-Update
 
 on: 
   schedule:
-  - cron: "25 12 * * *"
+  - cron: "25 06 * * *"
 
 jobs:
   update-data:
@@ -12,13 +12,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: pull request
+        uses: gorillio/github-action-sync@master
         with:
-          repository: CSSEGISandData/COVID-19
-      - name: PR
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GH_PAT }}
-          push-to-fork: korneliakobiela/COVID-19/
-          commit-message: Update remote Data
-
-      
+          upstream: CSSEGISandData/COVID-19
+          upstream_branch: master
+          branch: master
+          pr_labels: upstream
+        env: 
+          GITHUB_TOKEN: ${secrets.GH_PAT}
+          GITBOT_EMAIL: k.kobiela@samsung.com
+          DRY_RUN: false  
