@@ -2,7 +2,7 @@ name: Data-Update
 
 on: 
   schedule:
-  - cron: "25 06 * * *"
+  - cron: "40 09 * * *"
 
 jobs:
   update-data:
@@ -12,14 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: pull request
-        uses: gorillio/github-action-sync@master
+      - name: Merge Upstream
+        uses: exions/merge-upstream@v1
         with:
-          upstream: CSSEGISandData/COVID-19
-          upstream_branch: master
-          branch: master
-          pr_labels: upstream
-        env: 
-          GITHUB_TOKEN: ${secrets.GH_PAT}
-          GITBOT_EMAIL: k.kobiela@samsung.com
-          DRY_RUN: false  
+          upstream: CSSEGISandData/COVID-19      # set the upstream repo
+          upstream-branch: master   # set the upstream branch to merge from
+          branch: master 
+          token: secrets.GH_PAT     
