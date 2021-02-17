@@ -12,10 +12,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Merge Upstream
-        uses: exions/merge-upstream@v1
+      - name: Update remote data
+        run: git remote add upstream https://github.com/CSSEGISandData/COVID-19
+          git pull upstream master
+      - name: new Branch
+        uses: actions/checkout@v2
         with:
-          upstream: CSSEGISandData/COVID-19      # set the upstream repo
-          upstream-branch: master   # set the upstream branch to merge from
-          branch: master 
-          token: secrets.GH_PAT     
+         ref: data
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64'
+      - name: Run script
+        run: python filter_csv.py
+          python filter_csv_consolidate.py
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+            token: ${{ secrets.GH_PAT }}
+            commit-message: Update DATA (auto)
+            title: Update DATA (auto)
