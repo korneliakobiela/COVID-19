@@ -28,7 +28,7 @@ jobs:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64'
       - name: Run script
-        run: convert_csv_to_json.py
+        run: py convert_csv_to_json.py
       - name: Commit and merge
         run: |
           git commit -am "Update data (auto)"
