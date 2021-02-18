@@ -22,10 +22,6 @@ jobs:
           git fetch upstream
           git branch
           git merge upstream/master
-      - name: new Branch
-        uses: actions/checkout@v2
-        with:
-         ref: data
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -35,5 +31,5 @@ jobs:
         run: convert_csv_to_json.py
       - name: Commit and merge
         run: |
-          git commit -am "Update data"
+          git commit -am "Update data (auto)"
           git push origin master
