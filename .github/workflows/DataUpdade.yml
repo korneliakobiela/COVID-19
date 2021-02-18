@@ -7,7 +7,6 @@ on:
 jobs:
   update-data:
     name: Update data from remote
-    environment: secrests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,7 +17,9 @@ jobs:
       - name: Update remote data
         run: |
           git remote add upstream https://github.com/CSSEGISandData/COVID-19
-          git pull upstream master
+          git fetch upstream
+          git branch
+          git merge upstream/master
       - name: new Branch
         uses: actions/checkout@v2
         with:
