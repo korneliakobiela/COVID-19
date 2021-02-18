@@ -40,3 +40,4 @@ jobs:
             token: ${{ secrets.GH_PAT }}
             commit-message: Update DATA (auto)
             title: Update DATA (auto)
+            base: data
